@@ -1,0 +1,21 @@
+
+Style/AndOr:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 40
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/ClassLength:
+  Max: 130
+
+Metrics/LineLength:
+  Max: 120
+
+AllCops:
+  Exclude:
+    - 'spec/**/*'
+    - 'Gemfile'
+    - 'eldr-responders.gemspec'

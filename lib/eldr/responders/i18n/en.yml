@@ -1,0 +1,7 @@
+responder:
+  default:
+    destroy: "%1 has been successfully deleted."
+    create: "%1 has been successfully created."
+    update: "%1 has been successfully updated."
+    read:   "You are looking at %1"
+    all:    "You are looking at %1"
