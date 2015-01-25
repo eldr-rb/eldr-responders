@@ -44,4 +44,4 @@ I don't want any of these steps to scare you off. If you don't know how to do so
 
 ## License
 
-Licensed under MIT by K-2052.
+Licensed under MIT by K-2052
