@@ -9,12 +9,13 @@ module Eldr
 
       def call(env, app: self)
         @env = env
+        @app = app
         @configuration = app.configuration
 
-        if put_or_post?
+        if put_or_post? or force_redirect?
           put_or_post
         else
-          write(Tilt.new(find_template(view_name)).render(self))
+          write(Tilt.new(find_template(view_name)).render(app))
         end
 
         self

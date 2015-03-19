@@ -15,7 +15,6 @@ module Eldr
       def initialize(object, *options)
         @object = object
         raise ArgumentsError, "Don't pass empty objects to respond you silly goose!" if object.nil? or (object.is_a? Array and object.empty?)
-
         @options = options.extract_options!
         @options[:action] = options.first if options.first.is_a? Symbol
 
@@ -35,6 +34,10 @@ module Eldr
 
           ::R18n::I18n.new(locales, ::R18n.default_places, off_filters: :untranslated, on_filters: :untranslated_html)
         end
+      end
+
+      def force_redirect?
+        @options[:force_redirect] ||= false
       end
 
       def set_status(status=nil)
@@ -131,6 +134,7 @@ module Eldr
         @status = 303
         @header['Location']   = request.referrer unless request.referrer.blank?
         @header['Location'] ||= default
+        @header['Location'] = default if force_redirect?
       end
     end
   end
